@@ -1,0 +1,32 @@
+{{#each this}}
+<div class="golfer">
+  <input class="golfer__radio" form="picking-the-majors" type="radio" id="golfer--{{id}}" name="group--{{../id}}">
+  <label class="golfer__label" for="golfer--{{id}}">
+    <ul class="golfer__details">
+      <li class="golfer__name  golfer__country--{{country}}">{{name}} ({{rank}})</li><!--
+
+    --><ul class="golfer__last-tournaments">
+        <li class="golfer__stat-header">{{../../lastTournament}}</li><!--
+     --><li class="golfer__stat">{{s1}}</li><!--
+     --><li class="golfer__stat">{{s2}}</li><!--
+     --><li class="golfer__stat">{{s3}}</li>
+      </ul><!--
+
+    --><ul class="golfer__last-majors">
+        <li class="golfer__stat-header">{{../../lastMajor}}</li><!--
+     --><li class="golfer__stat">{{s4}}</li><!--
+     --><li class="golfer__stat">{{s5}}</li><!--
+     --><li class="golfer__stat">{{s6}}</li>
+      </ul><!--
+
+    --><ul class="golfer__last-championship">
+        <li class="golfer__stat-header">{{../../lastChampionship}}</li><!--
+     --><li class="golfer__stat">{{s7}}</li><!--
+     --><li class="golfer__stat">{{s8}}</li><!--
+     --><li class="golfer__stat">{{s9}}</li>
+      </ul>
+
+    </ul>
+  </label>
+</div>
+{{/each}}

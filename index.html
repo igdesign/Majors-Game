@@ -1,0 +1,24 @@
+<!-- @include _header -->
+
+  <div id="groups"></div>
+
+  <script id="golfers" type="text/x-handlebars-template">
+    {{#each groups}}
+    <div class="group">
+      <h2 class="group__title">{{@key}}</h2>
+      <div class="group-grid">
+        <ul class="group-grid__header">
+          <li class="group-grid__item--name">Golfer</li><!--
+       --><li class="group-grid__item--last-tournaments">{{../lastTournament}}</li><!--
+       --><li class="group-grid__item--last-majors">{{../lastMajor}}</li><!--
+       --><li class="group-grid__item--last-championship">{{../lastChampionship}}</li>
+        </ul>
+      </div>
+
+      <!-- @include golfer-js -->
+    </div>
+    {{/each}}
+  </script>
+
+
+<!-- @include _footer -->
