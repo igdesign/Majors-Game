@@ -74,6 +74,7 @@ class Document
 
     // close curl resource, and free up system resources
     curl_close($ch);
+
   }
 
   /**
@@ -93,6 +94,8 @@ class Document
    */
   public function readTitle()
   {
+
+
    $this->title = $this->documentJson->feed->title->{'$t'};
 
    return $this->title;
@@ -116,9 +119,9 @@ class Document
       $settings[$key] = $setting[1];
     }
 
-    $this->settings['lastTournament'] = $settings[0];
-    $this->settings['lastMajor'] = $settings[1];
-    $this->settings['lastChampionship'] = $settings[2];
+    $this->settings['lastTournament'] = trim($settings[0]);
+    $this->settings['lastMajor'] = trim($settings[1]);
+    $this->settings['lastChampionship'] = trim($settings[2]);
 
     return $this->settings;
   }
@@ -152,22 +155,22 @@ class Document
       }
 
       // expand row to array
-      $golfer = explode(',',$entry->content->{'$t'});
+      $row = explode(',',$entry->content->{'$t'});
 
       // flatten array into an associated
-      foreach($golfer as $key => $data) {
+      foreach($row as $key => $data) {
         $explodedData = explode(':', $data);
         $arrayKey = trim($explodedData[0]);
         $arrayValue = trim($explodedData[1]);
 
-        $golfer[$arrayKey] = $arrayValue;
+        $row[$arrayKey] = $arrayValue;
 
         // remove key => value entries in favour of associated keys
-        unset($golfer[$key]);
+        unset($row[$key]);
       }
 
-      // add golfer to associated group (from title)
-      $groups[$group][] = $golfer;
+      // add row to associated group (from title)
+      $groups[$group][] = $row;
     }
 
     // save data to variable
