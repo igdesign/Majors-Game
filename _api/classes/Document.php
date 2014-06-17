@@ -84,6 +84,7 @@ class Document
   public function parseDocument()
   {
    $this->documentJson = json_decode($this->document);
+
   }
 
   /**
