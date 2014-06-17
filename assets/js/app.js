@@ -1,14 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-  var documentKey = '13E_Sdi3RwNvL6XoEec-8oAVu1K8o0PBDZ6mt5uvh2wc';
-
   remote = new XMLHttpRequest();
-  remote.open('GET', 'http://api.ptm.dev?doc='+documentKey, true);
+  remote.open('GET', 'http://api.ptm.dev?doc=13E_Sdi3RwNvL6XoEec-8oAVu1K8o0PBDZ6mt5uvh2wc&key=od6', true);
   remote.onload = function() {
     if (remote.status >= 200 && remote.status < 400){
       // Success!
-
-      data = JSON.parse(remote.responseText);
 
       var data = JSON.parse(remote.responseText);
 
