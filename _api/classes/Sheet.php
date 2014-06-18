@@ -5,7 +5,7 @@
  *
  * retrieves the document from google
  */
-class Document
+class Sheet
 {
 
   /**
